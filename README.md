@@ -83,5 +83,5 @@ Output: Selected Variables S
 - sklearn
 - matplotlib
 
-### Modal used
+### Model used
 - **RandomForestClassifier** is used for data Classification
