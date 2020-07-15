@@ -1,0 +1,63 @@
+									Intoduction
+Stepwise Feature Selection:
+	Stepwise methods start with some set of selected variables and try to improve it in a greedy
+fashion, by either including or excluding a single variable at each step.
+	Two popular members of the stepwise family are the 
+		1. forward selection
+		2. backward selection (also known as backward elimination)
+
+* Forward selection, starts with a (usually empty) set of variables and adds variables to it, until some stopping criterion is met.
+
+* Backward selection, starts with a (usually complete) set of variables and then excludes variables from that set, until some stopping criterion is
+met.
+
+Typically, both methods try to include or exclude the variable that offers the highest
+performance increase
+
+Forward-Backward Selection algorithm (FBS), 
+which first performs a forward phase and then a backward phase on the selected variables.
+
+Algorithm - 1 explanation (FBS)
+
+step1: Init empty set S - {set of features}
+step 2: Identify the best feature from the set of n features.
+step 3: At every iteration start including the best feature (only if the performance is increased).
+step 4: Loop step 2 & 3 untill the set S dosen't change.
+step 5: Fetch the final set S from forward phase, feed it to next stage
+step 6: Identify the worst feature from the set S
+step 7: At every iteration remove one feature (only if performance is not decreased).
+step 8: Loop step 6 & 7 untill the set S dosen't change.
+step 9: Return S
+
+Introduction of early dropping:
+	After each forward iteration, remove all variables
+that do not satisfy the criterion C for the current set of selected variables S from the
+remaining variables R. 
+
+Algorithm - 2 explanation (FBSED)
+step1: Init empty set S - {set of features}, k - Number of runs, C - criterion
+step 2: Identify the best feature from the set of n features.
+step 3: At every iteration start including the best feature (only if the Criterion C is met).
+step 4: Drop every variable which dosen't satisfy criterion C.
+step 5: Loop step 2,3,4 untill the given set is empty.
+step 6: Return S
+step 7: Loop step 5,6 untill S dosen't change or the number of runs limit is reached.
+step 8: Return S
+step 9: Fetch the final set S from forward phase, feed it to next stage
+step 10: Identify the worst feature from the set S
+step 11: At every iteration remove one feature (only if performance is not decreased).
+step 12: Loop step 6 & 7 untill the set S dosen't change.
+step 13: Return S
+
+In our example 
+	1. we set the criterion by introducing a correlation matrix and setting a limit value to 0.70
+	2. we experimented with the value of k = 5
+
+* Thus forward-Backward selection with early dropping is done by finding the independent variables and 
+eliminating it which decreases the run time significantly by giving almost same accuracy.
+
+* Early dropping is done by finding the correlation matrix after performing each iteration of Forward Selection.
+
+
+
+
